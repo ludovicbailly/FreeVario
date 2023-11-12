@@ -1,0 +1,4 @@
+[submodule "Submodules/McuSDK"]
+	path = Submodules/McuSDK
+	url = https://github.com/ludovicbailly/McuSDK.git
+	branch = main
