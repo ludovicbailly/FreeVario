@@ -12,6 +12,8 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
+#include "bme280.h"
+
 /* Dimensions of the buffer that the task being created will use as its stack.
   NOTE:  This is the number of words the stack will hold, not the number of
   bytes.  For example, if each stack item is 32-bits, and this is set to 100,
@@ -55,6 +57,9 @@ void locationInit(void)
 static void locationTask( void * pvParameters )
 {
   mcuSdkGpioSetAsOutput(GPIO_DEFS_LED);
+
+  bme280Init();
+
   for( ;; )
   {
     vTaskDelay(pdMS_TO_TICKS(500));
